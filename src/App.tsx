@@ -1,15 +1,15 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { RegionalPage } from './pages/RegionalPage';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/advogado-em/:slug" element={<RegionalPage />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
