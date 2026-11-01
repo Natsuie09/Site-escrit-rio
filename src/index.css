@@ -5,7 +5,107 @@
   --font-serif: "Playfair Display", Georgia, serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-sans);
-  background-color: #f8fafc;
+  background-color: #0b1911;
+  color: #f3f1ec;
+  overflow-x: hidden;
+}
+
+/* Padrão de listras diagonais douradas inspirado na referência */
+.bg-gold-stripes {
+  background-image: repeating-linear-gradient(
+    -55deg,
+    rgba(197, 160, 89, 0.28) 0px,
+    rgba(197, 160, 89, 0.28) 3px,
+    transparent 3px,
+    transparent 12px
+  );
+}
+
+.bg-forest-grid {
+  background-image: radial-gradient(rgba(197, 160, 89, 0.12) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Animações personalizadas para as imagens e seções do site */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes lampGlow {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes kenBurns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.08) translate(-1%, -1%);
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+@keyframes shimmerGold {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes scaleBalance {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(2.5deg);
+  }
+  75% {
+    transform: rotate(-2.5deg);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.animate-lamp-glow {
+  animation: lampGlow 4s ease-in-out infinite;
+}
+
+.animate-ken-burns {
+  animation: kenBurns 18s ease-in-out infinite;
+}
+
+.animate-scale-balance {
+  animation: scaleBalance 6s ease-in-out infinite;
+}
+
+.gold-shimmer-text {
+  background: linear-gradient(90deg, #c5a059 0%, #f3dfb2 50%, #c5a059 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerGold 6s linear infinite;
 }
