@@ -46,7 +46,7 @@ export const LinksBioPage: React.FC = () => {
         />
       </Helmet>
 
-      <div className="min-h-screen bg-[#0B1911] text-[#F3F1EC] py-12 px-4 relative overflow-hidden">
+      <div className="min-h-screen bg-black/35 text-[#F3F1EC] py-12 px-4 relative z-10 overflow-hidden">
         <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#C5A059]/15 blur-[130px] rounded-full pointer-events-none" />
 
         <div className="max-w-lg mx-auto relative z-10">

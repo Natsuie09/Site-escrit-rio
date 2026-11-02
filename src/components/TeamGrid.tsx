@@ -8,7 +8,7 @@ export const TeamGrid: React.FC = () => {
   const closeModal = () => setSelectedAdvogado(null);
 
   return (
-    <section id="equipe" className="py-24 px-6 relative overflow-hidden bg-[#0E1E14] bg-forest-grid border-t border-[#C5A059]/20">
+    <section id="equipe" className="py-24 px-6 relative overflow-hidden bg-black/25 backdrop-blur-[2px] border-t border-[#C5A059]/20">
       {/* Glow decorativo */}
       <div className="absolute -top-32 right-10 w-96 h-96 bg-[#C5A059]/10 rounded-full blur-[120px] pointer-events-none" />
 
@@ -23,7 +23,7 @@ export const TeamGrid: React.FC = () => {
               Equipe
             </h2>
           </div>
-          <p className="text-stone-300 text-base md:text-lg max-w-xl leading-relaxed">
+          <p className="text-stone-200 text-base md:text-lg max-w-xl leading-relaxed drop-shadow">
             Profissionais com atuação dedicada em <strong className="text-white">Direito Agrário, Vara de Família, Previdenciário e Criminal</strong>, combinando rigor técnico, sigilo e proximidade com cada cliente.
           </p>
         </div>
@@ -34,7 +34,7 @@ export const TeamGrid: React.FC = () => {
             <div
               key={adv.id}
               onClick={() => setSelectedAdvogado(adv)}
-              className="group relative bg-[#13261B] rounded-xl overflow-hidden border border-[#C5A059]/25 hover:border-[#C5A059] transition-all duration-500 cursor-pointer flex flex-col shadow-xl hover:-translate-y-2"
+              className="group relative bg-[#0B1911]/70 backdrop-blur-md rounded-xl overflow-hidden border border-[#C5A059]/30 hover:border-[#C5A059] transition-all duration-500 cursor-pointer flex flex-col shadow-xl hover:-translate-y-2"
             >
               {/* Foto com overlay igual à referência */}
               <div className="relative h-96 overflow-hidden">
@@ -68,7 +68,7 @@ export const TeamGrid: React.FC = () => {
               </div>
 
               {/* Resumo e tags */}
-              <div className="p-6 flex-1 flex flex-col justify-between bg-[#102117]">
+              <div className="p-6 flex-1 flex flex-col justify-between bg-[#0B1911]/65 backdrop-blur-md">
                 <p className="text-stone-300 text-sm leading-relaxed mb-5 line-clamp-3">
                   {adv.bioCurta}
                 </p>

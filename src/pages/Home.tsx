@@ -27,6 +27,7 @@ import {
 import { localidades } from '../data/localidades';
 import { servicos } from '../data/servicos';
 import { TeamGrid } from '../components/TeamGrid';
+import { LaocoonTitle } from '../components/ScrollBronzeBackground';
 
 const Instagram: React.FC<{ size?: number; className?: string }> = ({ size = 18, className = '' }) => (
   <svg
@@ -169,9 +170,9 @@ export const Home: React.FC = () => {
         <script type="application/ld+json">{JSON.stringify(schemaJsonLd)}</script>
       </Helmet>
 
-      <div className="min-h-screen bg-[#0B1911] text-[#F3F1EC] font-sans selection:bg-[#C5A059] selection:text-[#0B1911]">
+      <div className="min-h-screen bg-transparent text-[#F3F1EC] font-sans relative z-10 selection:bg-[#C5A059] selection:text-[#0B1911]">
         {/* ================= NAVBAR SUPERIOR ================= */}
-        <nav className="sticky top-0 z-40 bg-[#0B1911]/95 backdrop-blur-md border-b border-[#C5A059]/20 px-6 py-4">
+        <nav className="sticky top-0 z-40 bg-black/55 backdrop-blur-md border-b border-[#C5A059]/25 px-6 py-4">
           <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
             <Link to="/" className="flex items-center gap-3 group">
               <div className="w-10 h-10 rounded-lg bg-[#14291D] border border-[#C5A059]/50 flex items-center justify-center group-hover:bg-[#C5A059] transition-colors">
@@ -226,20 +227,10 @@ export const Home: React.FC = () => {
           </div>
         </nav>
 
-        {/* ================= HERO SECTION (INSPIRADO NA REFERÊNCIA) ================= */}
-        <header className="relative min-h-[84vh] flex items-center bg-[#0B1911] overflow-hidden border-b border-[#C5A059]/20">
-          {/* Imagem de fundo suave com marca d'água jurídica */}
-          <div className="absolute inset-0 opacity-20 pointer-events-none">
-            <img
-              src="images/balanca-justica-escritorio.jpg"
-              alt="Biblioteca jurídica e balança da justiça"
-              className="w-full h-full object-cover animate-ken-burns"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0B1911] via-[#0B1911]/90 to-[#0B1911]/50" />
-          </div>
-
-          {/* Barra lateral esquerda vertical (igual à referência raspada) */}
-          <div className="hidden xl:flex flex-col items-center justify-between py-12 px-4 border-r border-[#C5A059]/15 h-full z-20 text-stone-400">
+        {/* ================= HERO SECTION (SOBRE O FUNDO WEBGL 3D DA BALANÇA DE BRONZE) ================= */}
+        <header className="relative min-h-[88vh] flex items-center bg-gradient-to-r from-black/65 via-black/25 to-transparent overflow-hidden border-b border-[#C5A059]/20">
+          {/* Barra lateral esquerda vertical */}
+          <div className="hidden xl:flex flex-col items-center justify-between py-12 px-4 border-r border-[#C5A059]/15 h-full z-20 text-stone-300">
             <div className="w-px h-16 bg-[#C5A059]/30" />
             <div className="flex flex-col gap-6 my-8">
               <a
@@ -337,7 +328,7 @@ export const Home: React.FC = () => {
               {/* Faixa diagonal listrada dourada atrás da imagem */}
               <div className="absolute -inset-4 sm:-inset-6 bg-gold-stripes rounded-2xl -rotate-2 pointer-events-none border border-[#C5A059]/20" />
 
-              <div className="relative rounded-2xl overflow-hidden border-2 border-[#C5A059]/50 shadow-2xl bg-[#13261B] aspect-[16/11]">
+              <div className="relative rounded-2xl overflow-hidden border-2 border-[#C5A059]/50 shadow-2xl bg-[#0B1911]/60 backdrop-blur-sm aspect-[16/11]">
                 <img
                   key={heroArea.imagem}
                   src={heroArea.imagem}
@@ -371,22 +362,37 @@ export const Home: React.FC = () => {
           </div>
         </header>
 
-        {/* ================= SEÇÃO 2: ÁREAS DE ATUAÇÃO (LAYOUT SPLIT DA REFERÊNCIA) ================= */}
-        <section id="atuacao" className="py-24 px-6 bg-[#0D1E14] relative">
+        {/* ================= JANELA CINEMATOGRÁFICA 1: JUSTIÇA E TEMPO (BALANÇA AO FUNDO) ================= */}
+        <section className="laocoon-window active relative min-h-[58vh] flex items-end py-16 px-6 md:px-16 pointer-events-none">
+          <div className="max-w-7xl mx-auto w-full">
+            <LaocoonTitle lines={['Justiça', 'e Tempo']} />
+            <div className="grid md:grid-cols-2 gap-8 max-w-2xl">
+              <p className="laocoon-desc">
+                Um símbolo forjado ao longo dos séculos. A balança pesa fatos, provas e direitos com a mesma serenidade com que o bronze atravessa o tempo.
+              </p>
+              <p className="laocoon-desc">
+                Nascida do fogo e da vontade de equilíbrio, ela une a tradição do Direito à visão estratégica de hoje. Uma força fluida, contida no peso exato de cada decisão.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ================= SEÇÃO 2: ÁREAS DE ATUAÇÃO (COM FUNDO TRANSLÚCIDO SOBRE A BALANÇA 3D) ================= */}
+        <section id="atuacao" className="py-24 px-6 bg-black/25 backdrop-blur-[2px] relative border-t border-[#C5A059]/15">
           <div className="max-w-7xl mx-auto">
             {/* Título inspirado na referência */}
             <div className="max-w-3xl mb-14">
               <div className="w-12 h-0.5 bg-[#C5A059] mb-4" />
-              <h2 className="font-serif text-3xl sm:text-5xl font-bold text-[#C5A059] leading-tight mb-4">
+              <h2 className="font-serif text-3xl sm:text-5xl font-bold text-[#C5A059] leading-tight mb-4 drop-shadow">
                 Áreas de Atuação
               </h2>
-              <p className="text-stone-300 text-base sm:text-lg leading-relaxed">
+              <p className="text-stone-200 text-base sm:text-lg leading-relaxed drop-shadow">
                 Atuamos de ponta a ponta nas demandas que exigem maior rigor técnico e proximidade: da proteção da lavoura e do produtor no <strong className="text-white">Direito Agrário</strong> à segurança da sua família na <strong className="text-white">Vara de Família</strong>, conquista de benefícios no <strong className="text-white">Previdenciário (INSS)</strong> e defesa intransigente no <strong className="text-white">Direito Criminal</strong>.
               </p>
             </div>
 
-            {/* Container Verde Escuro com Coluna de Cards à Esquerda + Painel Detalhado à Direita */}
-            <div className="bg-[#13281C] border border-[#C5A059]/25 rounded-2xl p-6 sm:p-10 shadow-2xl grid lg:grid-cols-12 gap-8 items-stretch">
+            {/* Container Translúcido com Coluna de Cards à Esquerda + Painel Detalhado à Direita */}
+            <div className="bg-[#0B1911]/65 backdrop-blur-md border border-[#C5A059]/30 rounded-2xl p-6 sm:p-10 shadow-2xl grid lg:grid-cols-12 gap-8 items-stretch">
               {/* Coluna Esquerda: Lista vertical de cards com foto de fundo (igual à referência!) */}
               <div className="lg:col-span-5 flex flex-col gap-4 justify-between">
                 {servicos.map((servico, idx) => {
@@ -446,7 +452,7 @@ export const Home: React.FC = () => {
               </div>
 
               {/* Coluna Direita: Painel Interativo da Área Selecionada */}
-              <div className="lg:col-span-7 bg-[#0E1E14] rounded-xl border border-[#C5A059]/30 overflow-hidden flex flex-col justify-between">
+              <div className="lg:col-span-7 bg-[#0B1911]/70 backdrop-blur-md rounded-xl border border-[#C5A059]/30 overflow-hidden flex flex-col justify-between">
                 {/* Imagem de topo com animação e overlay */}
                 <div className="relative h-64 sm:h-72 overflow-hidden">
                   <img
@@ -548,10 +554,30 @@ export const Home: React.FC = () => {
           </div>
         </section>
 
+        {/* ================= JANELA CINEMATOGRÁFICA 2: EQUILÍBRIO EXATO + MÁSCARA EDITORIAL ================= */}
+        <section className="laocoon-window relative min-h-[60vh] flex items-center py-16 px-6 md:px-16 pointer-events-none">
+          <div className="max-w-7xl mx-auto w-full grid md:grid-cols-12 gap-10 items-center">
+            <div className="md:col-span-4">
+              <div className="laocoon-img-mask rounded-xl border border-[#C5A059]/40 shadow-2xl aspect-square max-w-xs">
+                <img
+                  src="images/agricultor-campo-fundo.jpg"
+                  alt="Agricultor preparando a terra ao entardecer — Direito Agrário"
+                />
+              </div>
+            </div>
+            <div className="md:col-span-8">
+              <LaocoonTitle lines={['Equilíbrio', 'Exato']} />
+              <p className="laocoon-desc max-w-lg">
+                Cada caso é pesado com rigor técnico e sensibilidade humana. De um lado, a lei; do outro, a história de quem confia a nós o seu trabalho e a sua terra.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* ================= SEÇÃO 3: VITRINE VISUAL ANIMADA NO MEIO DO SITE ================= */}
         <section
           id="vitrine-animada"
-          className="py-24 px-6 bg-[#0B1911] border-t border-b border-[#C5A059]/20 relative overflow-hidden"
+          className="py-24 px-6 bg-black/20 border-t border-b border-[#C5A059]/20 relative overflow-hidden"
         >
           <div className="max-w-7xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-16">
@@ -703,8 +729,20 @@ export const Home: React.FC = () => {
           </div>
         </section>
 
-        {/* ================= SEÇÃO 4: QUEM SOMOS (TÓPICO OBRIGATÓRIO 1 - FIEL À REFERÊNCIA) ================= */}
-        <section id="quem-somos" className="py-24 px-6 bg-[#102116] relative overflow-hidden">
+        {/* ================= JANELA CINEMATOGRÁFICA 3: RAÍZES DO CAMPO (TRANSIÇÃO PARA O AGRICULTOR AO FUNDO) ================= */}
+        <section className="laocoon-window relative min-h-[62vh] flex items-end py-16 px-6 md:px-16 pointer-events-none">
+          <div className="max-w-7xl mx-auto w-full flex justify-end">
+            <div className="max-w-xl">
+              <LaocoonTitle lines={['Raízes', 'do Campo']} />
+              <p className="laocoon-desc">
+                Por trás de cada contrato rural existe um produtor, uma safra e uma família. Enquanto você rola a página, a balança dá lugar a quem cultiva o solo e move o país.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ================= SEÇÃO 4: QUEM SOMOS (SOBRE O FUNDO DO AGRICULTOR) ================= */}
+        <section id="quem-somos" className="py-24 px-6 bg-black/25 backdrop-blur-[2px] relative overflow-hidden">
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-12 gap-10 items-center mb-16">
               {/* Texto Quem Somos à esquerda */}
@@ -759,38 +797,38 @@ export const Home: React.FC = () => {
 
             {/* 3 Cards Horizontais de Diferenciais (exatamente abaixo de Quem Somos na referência) */}
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-[#152B1E] border border-[#C5A059]/25 p-8 rounded-xl hover:border-[#C5A059] transition-all">
+              <div className="bg-[#0B1911]/65 backdrop-blur-md border border-[#C5A059]/30 p-8 rounded-xl hover:border-[#C5A059] transition-all">
                 <div className="flex items-center justify-between mb-4">
                   <h4 className="font-serif text-xl font-bold text-[#C5A059]">
                     Atuação Multidisciplinar Integrada
                   </h4>
                   <Shield className="text-[#C5A059]" size={24} />
                 </div>
-                <p className="text-stone-300 text-sm leading-relaxed">
+                <p className="text-stone-200 text-sm leading-relaxed">
                   Quando uma demanda rural esbarra em questões familiares, sucessórias, previdenciárias ou ambientais/criminais, nossa equipe atua de forma unificada no mesmo escritório.
                 </p>
               </div>
 
-              <div className="bg-[#152B1E] border border-[#C5A059]/25 p-8 rounded-xl hover:border-[#C5A059] transition-all">
+              <div className="bg-[#0B1911]/65 backdrop-blur-md border border-[#C5A059]/30 p-8 rounded-xl hover:border-[#C5A059] transition-all">
                 <div className="flex items-center justify-between mb-4">
                   <h4 className="font-serif text-xl font-bold text-[#C5A059]">
                     Proximidade e Sigilo Absoluto
                   </h4>
                   <Award className="text-[#C5A059]" size={24} />
                 </div>
-                <p className="text-stone-300 text-sm leading-relaxed">
+                <p className="text-stone-200 text-sm leading-relaxed">
                   Atendimento direto com o advogado especialista responsável pelo seu caso, com relatórios claros pelo WhatsApp e reuniões presenciais ou por videochamada.
                 </p>
               </div>
 
-              <div className="bg-[#152B1E] border border-[#C5A059]/25 p-8 rounded-xl hover:border-[#C5A059] transition-all">
+              <div className="bg-[#0B1911]/65 backdrop-blur-md border border-[#C5A059]/30 p-8 rounded-xl hover:border-[#C5A059] transition-all">
                 <div className="flex items-center justify-between mb-4">
                   <h4 className="font-serif text-xl font-bold text-[#C5A059]">
                     Foco em Soluções Ágeis
                   </h4>
                   <BookOpen className="text-[#C5A059]" size={24} />
                 </div>
-                <p className="text-stone-300 text-sm leading-relaxed">
+                <p className="text-stone-200 text-sm leading-relaxed">
                   Priorizamos medidas extrajudiciais rápidas, liminares estratégicas e acordos vantajosos sempre que possível, reduzindo o tempo de espera do cliente.
                 </p>
               </div>
@@ -801,7 +839,7 @@ export const Home: React.FC = () => {
         {/* ================= SEÇÃO 5: NOSSOS PARCEIROS & EMPRESAS ATENDIDAS (TÓPICO OBRIGATÓRIO 5) ================= */}
         <section
           id="parceiros"
-          className="py-16 px-6 bg-gradient-to-r from-[#1A2E1E] via-[#132418] to-[#1A2E1E] border-t border-b border-[#C5A059]/30"
+          className="py-16 px-6 bg-black/30 backdrop-blur-[2px] border-t border-b border-[#C5A059]/30"
         >
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-12 gap-8 items-center">
@@ -845,14 +883,14 @@ export const Home: React.FC = () => {
         {/* ================= SEÇÃO 6: EQUIPE (ESPECIALISTAS) ================= */}
         <TeamGrid />
 
-        {/* ================= SEÇÃO 7: ARTIGOS, EXEMPLOS DE SERVIÇOS & CARROSSÉIS (FUNDO CLARO DA REFERÊNCIA!) ================= */}
-        <section id="artigos" className="py-24 px-6 bg-[#F3F1EC] text-[#112217]">
+        {/* ================= SEÇÃO 7: ARTIGOS, EXEMPLOS DE SERVIÇOS & CARROSSÉIS (TRANSLÚCIDO COM CARDS CLAROS) ================= */}
+        <section id="artigos" className="py-24 px-6 bg-black/25 backdrop-blur-[2px] text-[#112217] border-t border-[#C5A059]/20">
           <div className="max-w-6xl mx-auto">
-            {/* Cabeçalho igual à seção clara da referência */}
+            {/* Cabeçalho */}
             <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
               <div>
                 <div className="w-12 h-0.5 bg-[#C5A059] mb-3" />
-                <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#8E6F36]">
+                <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#E5C77D] drop-shadow">
                   Artigos, Casos Práticos e Conteúdos
                 </h2>
               </div>
@@ -860,15 +898,15 @@ export const Home: React.FC = () => {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-[#112217] border border-[#112217]/30 px-4 py-2.5 rounded-full hover:bg-[#112217] hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-[#E5C77D] border border-[#C5A059]/50 bg-[#0B1911]/70 backdrop-blur-md px-4 py-2.5 rounded-full hover:bg-[#C5A059] hover:text-[#0B1911] transition-colors"
               >
                 <Instagram size={15} />
                 Ver Carrosséis no Instagram
               </a>
             </div>
 
-            {/* Card Principal em Destaque Horizontal (igual à caixa bege/branca no topo da seção clara da referência) */}
-            <div className="bg-[#E5DEC9] rounded-2xl p-6 sm:p-10 mb-12 grid md:grid-cols-12 gap-8 items-center shadow-md border border-[#C5A059]/30">
+            {/* Card Principal em Destaque Horizontal */}
+            <div className="bg-[#E5DEC9]/90 backdrop-blur-md rounded-2xl p-6 sm:p-10 mb-12 grid md:grid-cols-12 gap-8 items-center shadow-md border border-[#C5A059]/40">
               <div className="md:col-span-5 bg-white rounded-xl p-6 shadow-sm border border-stone-200">
                 <span className="text-[11px] uppercase tracking-widest text-[#8E6F36] font-bold block mb-2">
                   Guia Prático • Direito Agrário & Previdenciário
@@ -904,7 +942,7 @@ export const Home: React.FC = () => {
               {artigosExemplos.map((art, i) => (
                 <article
                   key={i}
-                  className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-stone-200/80 flex flex-col"
+                  className="bg-white/90 backdrop-blur-md rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-stone-200/80 flex flex-col"
                 >
                   <div className="relative h-56 overflow-hidden">
                     <img
@@ -948,8 +986,18 @@ export const Home: React.FC = () => {
           </div>
         </section>
 
+        {/* ================= JANELA CINEMATOGRÁFICA 4: COLHEITA JUSTA (AGRICULTOR + BALANÇA) ================= */}
+        <section className="laocoon-window relative min-h-[56vh] flex items-end py-16 px-6 md:px-16 pointer-events-none">
+          <div className="max-w-7xl mx-auto w-full">
+            <LaocoonTitle lines={['Colheita', 'Justa']} />
+            <p className="laocoon-desc max-w-xl">
+              Segurança jurídica do plantio à colheita: regularização fundiária, crédito rural, proteção familiar, previdenciária e defesa penal com a firmeza do bronze e a paciência de quem cultiva.
+            </p>
+          </div>
+        </section>
+
         {/* ================= SEÇÃO 8: CIDADES E UNIDADES DE ATUAÇÃO (SEO LOCAL + GMB) ================= */}
-        <section className="py-20 px-6 bg-[#102116] border-t border-[#C5A059]/20">
+        <section className="py-20 px-6 bg-black/25 backdrop-blur-[2px] border-t border-[#C5A059]/20">
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
               <div>
@@ -960,7 +1008,7 @@ export const Home: React.FC = () => {
                   Comarcas e Cidades de Atuação em Goiás
                 </h2>
               </div>
-              <div className="flex items-center gap-2 bg-[#162D1F] border border-[#C5A059]/40 px-4 py-2 rounded-full text-xs text-[#E5C77D]">
+              <div className="flex items-center gap-2 bg-[#0B1911]/75 backdrop-blur-md border border-[#C5A059]/40 px-4 py-2 rounded-full text-xs text-[#E5C77D]">
                 <Star size={15} className="fill-[#C5A059] text-[#C5A059]" />
                 <span>Atendimento 5.0 ★ avaliado pelos clientes na região</span>
               </div>
@@ -971,7 +1019,7 @@ export const Home: React.FC = () => {
                 <Link
                   key={loc.slug}
                   to={`/advogado-em/${loc.slug}`}
-                  className="bg-[#152B1E] hover:bg-[#1B3726] border border-[#C5A059]/25 hover:border-[#C5A059] p-5 rounded-xl transition-all group flex flex-col justify-between"
+                  className="bg-[#0B1911]/65 backdrop-blur-md hover:bg-[#1B3726]/80 border border-[#C5A059]/30 hover:border-[#C5A059] p-5 rounded-xl transition-all group flex flex-col justify-between"
                 >
                   <div>
                     <div className="w-9 h-9 rounded-full bg-[#C5A059]/15 text-[#C5A059] flex items-center justify-center mb-3 group-hover:bg-[#C5A059] group-hover:text-[#0B1911] transition-colors">
@@ -996,7 +1044,7 @@ export const Home: React.FC = () => {
         {/* ================= SEÇÃO 9: FALE CONOSCO (RODAPÉ + CARD BRANCO DA REFERÊNCIA!) ================= */}
         <footer
           id="contato"
-          className="bg-[#0A160F] pt-20 pb-12 px-6 border-t border-[#C5A059]/30 relative overflow-hidden"
+          className="bg-black/45 backdrop-blur-sm pt-20 pb-12 px-6 border-t border-[#C5A059]/30 relative overflow-hidden"
         >
           <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 items-start">
             {/* Coluna Esquerda: Dados de Contato, NAP do GMB e Redes Sociais */}

@@ -24,9 +24,9 @@ export const RegionalPage: React.FC = () => {
         <meta name="description" content={description} />
       </Helmet>
 
-      <div className="min-h-screen flex flex-col bg-[#0B1911] text-[#F3F1EC] font-sans">
+      <div className="min-h-screen flex flex-col bg-transparent text-[#F3F1EC] font-sans relative z-10">
         {/* Header */}
-        <nav className="bg-[#0B1911]/95 border-b border-[#C5A059]/25 p-5 sticky top-0 z-40 backdrop-blur-md">
+        <nav className="bg-black/65 border-b border-[#C5A059]/25 p-5 sticky top-0 z-40 backdrop-blur-md">
           <div className="max-w-6xl mx-auto flex items-center justify-between">
             <Link
               to="/"
